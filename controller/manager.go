@@ -8,12 +8,12 @@ import (
 type ManagerController struct{}
 
 func (u *ManagerController) Test(c *gin.Context) {
-	testerId := c.Param("testerId")
+	testerID := c.Param("testerID")
 	var dwnld float64
 	var upld float64
-	if testerId == "1" {
+	if testerID == "1" {
 		dwnld, upld, _ = service.TestFast()
-	} else if testerId == "2" {
+	} else if testerID == "2" {
 		dwnld, upld, _ = service.TestSpeedTest()
 	} else {
 		c.AbortWithStatus(400)
