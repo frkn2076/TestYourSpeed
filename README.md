@@ -11,3 +11,10 @@ You can call http://localhost:8080/testspeed/1 for fast and http://localhost:808
 * **go run main.go** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; => DEV
 * **ENV=UAT go run main.go** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;=> UAT
 * **ENV=PROD go run main.go** &nbsp; &nbsp; &nbsp; => PROD
+
+#### Or you can decide which envrironment to choose by launch.json of .vscode as,
+```json
+  "env": {
+    "ENV":"UAT"
+  }
+```
