@@ -10,6 +10,7 @@ import (
 
 var singleInfo *log.Logger
 var singleError *log.Logger
+var singleService *log.Logger
 
 func InfoLog(logText ...interface{}) {
 	singleInfo.Println(logText)
@@ -19,9 +20,14 @@ func ErrorLog(logText ...interface{}) {
 	singleError.Println(logText)
 }
 
+func ServiceLog(logText ...interface{}) {
+	singleService.Println(logText)
+}
+
 func init() {
 	singleInfo = initLogger("InfoLog")
 	singleError = initLogger("ErrorLog")
+	singleService = initLogger("ServiceLog")
 }
 
 func initLogger(folderName string) *log.Logger {
@@ -42,7 +48,7 @@ func initLogger(folderName string) *log.Logger {
 		os.MkdirAll(folderPath, 0700)
 	}
 
-	fileName := path.Join(folderPath, today + ".log")
+	fileName := path.Join(folderPath, today+".log")
 
 	//check log file created before
 	_, err = os.Stat(fileName)
