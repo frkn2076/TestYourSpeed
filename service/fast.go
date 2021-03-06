@@ -11,16 +11,16 @@ func init() {
 	singleFastCom = fast.New()
 }
 
-func FastDownloadTest() (float64, error) {
+func TestFast() (float64, float64 error) {
 
 	if err := singleFastCom.Init(); err != nil {
-		return 0, err
+		return 0, 0, err
 	}
 
 	urls, err := singleFastCom.GetUrls()
 
 	if err != nil {
-		return 0, err
+		return 0, 0, err
 	}
 
 	KbpsChan := make(chan float64)
@@ -33,9 +33,9 @@ func FastDownloadTest() (float64, error) {
 	}()
 
 	if err = singleFastCom.Measure(urls, KbpsChan); err != nil {
-		return 0, err
+		return 0, 0, err
 	}
 
 	result = math.Floor(result*100) / 100
-	return result, nil
+	return result, 0, nil
 }
