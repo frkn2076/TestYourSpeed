@@ -1,17 +1,12 @@
 package main
 
 import (
-	// f "app/TestYourSpeed/fast"
-	"app/TestYourSpeed/logger"
-	// "fmt"
+	_ "app/TestYourSpeed/environment"
+	"app/TestYourSpeed/router"
+	"os"
 )
 
 func main() {
-	// fastSpeed := f.Test()
-	// fmt.Printf("%.2f", fastSpeed)
-
-	logger.InfoLog("asdasd")
-
-	// r := router.SetupRouter()
-	// r.Run(":8080")
+	r := router.SetupRouter()
+	r.Run(os.Getenv("Port"))
 }
