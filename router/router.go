@@ -11,7 +11,7 @@ func SetupRouter() *gin.Engine {
 	router.Use(middleware.ServiceLog())
 
 	manager := new(controller.ManagerController)
-	router.GET("/test/:testerId", manager.Test)
+	router.GET("/test/:testerID", manager.Test)
 	router.NoRoute(func(c *gin.Context) {
 		c.Data(404, "text/plain", []byte("Call \".../test/1\" for fast\nCall \".../test/2\" for testspeed"))
 	})
