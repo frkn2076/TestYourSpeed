@@ -8,10 +8,10 @@
       "name": "Launch Package",
       "type": "go",
       "request": "launch",
-      "mode": "debug",
+      "mode": "debug", //test, debug
       "program": "${workspaceFolder}",
       "env": {
-        "ENV":"DEV" //UAT, PROD
+        "ENV": "DEV" //UAT, PROD
       },
     }
   ]
