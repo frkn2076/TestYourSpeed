@@ -1,7 +1,8 @@
-package fast
+package service
 
 import (
 	"github.com/ddo/go-fast"
+	"math"
 )
 
 var singleFastCom *fast.Fast
@@ -10,16 +11,16 @@ func init() {
 	singleFastCom = fast.New()
 }
 
-func Test() float64 {
+func FastDownloadTest() (float64, error) {
 
 	if err := singleFastCom.Init(); err != nil {
-		panic(err)
+		return 0, err
 	}
 
 	urls, err := singleFastCom.GetUrls()
 
 	if err != nil {
-		panic(err)
+		return 0, err
 	}
 
 	KbpsChan := make(chan float64)
@@ -32,8 +33,9 @@ func Test() float64 {
 	}()
 
 	if err = singleFastCom.Measure(urls, KbpsChan); err != nil {
-		panic(err)
+		return 0, err
 	}
 
-	return result
+	result = math.Floor(result*100) / 100
+	return result, nil
 }
