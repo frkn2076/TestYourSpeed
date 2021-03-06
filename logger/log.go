@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 	"path"
+	"time"
 )
 
 var singleInfo *log.Logger
@@ -19,7 +19,7 @@ func ErrorLog(logText ...interface{}) {
 	singleError.Println(logText)
 }
 
-func init(){
+func init() {
 	singleInfo = initLogger("InfoLog")
 	singleError = initLogger("ErrorLog")
 }
@@ -33,7 +33,14 @@ func initLogger(folderName string) *log.Logger {
 	dt := time.Now()
 	today := dt.Format("02-Jan-2006")
 
-	fileName := path.Join(wd, "logger", folderName, today)
+	folderPath := path.Join(wd, "logger", folderName)
+
+	//check folder created before
+	if _, err := os.Stat(folderPath); os.IsNotExist(err) {
+		os.Mkdir(folderPath, 0700)
+	}
+
+	fileName := path.Join(folderPath, today)
 
 	//check log file created before
 	_, err = os.Stat(fileName)
