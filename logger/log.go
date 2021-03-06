@@ -33,14 +33,16 @@ func initLogger(folderName string) *log.Logger {
 	dt := time.Now()
 	today := dt.Format("02-Jan-2006")
 
-	folderPath := path.Join(wd, "logger", folderName)
+	envLogPath := os.Getenv("LoggerPath")
+
+	folderPath := path.Join(wd, envLogPath, folderName)
 
 	//check folder created before
 	if _, err := os.Stat(folderPath); os.IsNotExist(err) {
-		os.Mkdir(folderPath, 0700)
+		os.MkdirAll(folderPath, 0700)
 	}
 
-	fileName := path.Join(folderPath, today)
+	fileName := path.Join(folderPath, today + ".log")
 
 	//check log file created before
 	_, err = os.Stat(fileName)
