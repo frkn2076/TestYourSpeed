@@ -11,7 +11,7 @@ func init() {
 	singleFastCom = fast.New()
 }
 
-func TestFast() (float64, float64 error) {
+func TestFast() (float64, float64, error) {
 
 	if err := singleFastCom.Init(); err != nil {
 		return 0, 0, err
