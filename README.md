@@ -18,3 +18,6 @@ You can call http://localhost:8080/testspeed/1 for fast and http://localhost:808
     "ENV":"UAT"
   }
 ```
+<p align="center">
+  <img src="https://github.com/frkn2076/TestYourSpeed/blob/master/image.png">
+</p>
