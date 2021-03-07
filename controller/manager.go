@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"app/TestYourSpeed/logger"
 	"app/TestYourSpeed/service"
 	"github.com/gin-gonic/gin"
 )
@@ -16,10 +17,12 @@ func (u *ManagerController) Test(c *gin.Context) {
 	} else if testerID == "2" {
 		dwnld, upld, _ = service.TestSpeedTest()
 	} else {
+		logger.ErrorLog("Unexpected testerID")
 		c.AbortWithStatus(400)
 	}
+	logger.InfoLog("Download: ", dwnld, " Upload: ", upld)
 	c.JSON(200, gin.H{
 		"Download": dwnld,
-		"Upload": upld,
+		"Upload":   upld,
 	})
 }

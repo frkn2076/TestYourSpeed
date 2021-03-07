@@ -1,6 +1,7 @@
 package service
 
 import (
+	"app/TestYourSpeed/logger"
 	"github.com/ddo/go-fast"
 	"math"
 )
@@ -14,12 +15,14 @@ func init() {
 func TestFast() (float64, float64, error) {
 
 	if err := singleFastCom.Init(); err != nil {
+		logger.ErrorLog(err)
 		return 0, 0, err
 	}
 
 	urls, err := singleFastCom.GetUrls()
 
 	if err != nil {
+		logger.ErrorLog(err)
 		return 0, 0, err
 	}
 
@@ -33,6 +36,7 @@ func TestFast() (float64, float64, error) {
 	}()
 
 	if err = singleFastCom.Measure(urls, KbpsChan); err != nil {
+		logger.ErrorLog(err)
 		return 0, 0, err
 	}
 
