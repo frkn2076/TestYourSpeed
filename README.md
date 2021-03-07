@@ -18,6 +18,12 @@ You can call http://localhost:8080/testspeed/1 for fast and http://localhost:808
     "ENV":"UAT"
   }
 ```
+&nbsp;
+
 <p align="center">
-  <img src="https://github.com/frkn2076/TestYourSpeed/blob/master/image.png">
+  <img src="https://github.com/frkn2076/TestYourSpeed/blob/main/image.png">
 </p>
+&nbsp;
+
+* Used gin as a web framework
+* Used testify for assertions
