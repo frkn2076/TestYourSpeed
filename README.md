@@ -1,6 +1,6 @@
 ## TestYourSpeed
 
-#### A small application that compares Ookla's speedtest and Netflix's fast
+#### A small application that compares download and upload speed tests of Ookla's speedtest and Netflix's fast
 * https://www.speedtest.net
 * https://fast.com
 
